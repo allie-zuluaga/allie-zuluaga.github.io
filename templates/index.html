@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Horoscope Reader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #337ab7;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .error {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Horoscope Reader</h1>
+    <form method="POST">
+        <label for="sign">Enter your sign:</label>
+        <input type="text" id="sign" name="sign" required>
+        <input type="submit" value="Get Horoscope">
+    </form>
+    {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+    {% endif %}
+    {% if horoscope %}
+        <h2>Your horoscope for today:</h2>
+        <p>{{ horoscope }}</p>
+    {% endif %}
+</body>
+</html>
